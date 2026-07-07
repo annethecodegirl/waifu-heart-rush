@@ -58,6 +58,22 @@ def main() -> None:
         "                elif event.key == pygame.K_F11 and sys.platform != 'emscripten':\n",
         "the F11 fullscreen handler",
     )
+
+    # The desktop start prompt sat over the character when the browser canvas
+    # was resized. Keep the browser prompt in the open space above her instead.
+    code = replace_once(
+        code,
+        "                (WIDTH // 2, 517),\n",
+        "                (WIDTH // 2, 340),\n",
+        "the start-button position",
+    )
+    code = replace_once(
+        code,
+        "                (WIDTH // 2, 557),\n",
+        "                (WIDTH // 2, 385),\n",
+        "the start-controls position",
+    )
+
     code = replace_once(
         code,
         "    pygame.quit()\n    sys.exit()\n\n\nif __name__ == \"__main__\":\n    main()\n",
