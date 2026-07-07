@@ -37,6 +37,9 @@ jobs:
       - name: Build WebAssembly version
         run: python -m pygbag --build --ume_block 0 --title "Waifu Heart Rush" game
 
+      - name: Preserve the 900x600 game proportions
+        run: python fix_web_layout.py
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
